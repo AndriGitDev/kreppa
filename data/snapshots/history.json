@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "score_version": "0.2.0",
+  "generated_at": "2026-05-21T16:39:26.728973Z",
+  "history": [
+    {
+      "date": "2026-05-21",
+      "score": 59,
+      "raw_score": 59.09,
+      "confidence": 1.0
+    }
+  ],
+  "note": "History begins with generated snapshots in the MVP. Backfill is implemented as a future calibration step."
+}

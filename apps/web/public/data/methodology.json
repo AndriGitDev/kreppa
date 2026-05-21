@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0.0",
+  "score_version": "0.2.0",
+  "components": {
+    "inflation_rates": {
+      "label_is": "Verðbólga og vextir",
+      "label_en": "Inflation and rates",
+      "weight": 0.2
+    },
+    "growth_labour": {
+      "label_is": "Hagvöxtur og vinnumarkaður",
+      "label_en": "Growth and labour market",
+      "weight": 0.2
+    },
+    "housing_construction": {
+      "label_is": "Húsnæði og framkvæmdir",
+      "label_en": "Housing and construction",
+      "weight": 0.15
+    },
+    "external_fx": {
+      "label_is": "Gengi, utanríkisviðskipti og gjaldeyrir",
+      "label_en": "External and FX stress",
+      "weight": 0.15
+    },
+    "credit_banking": {
+      "label_is": "Lán, bankar og fjármálakerfi",
+      "label_en": "Credit and banking stress",
+      "weight": 0.15
+    },
+    "tourism_sector": {
+      "label_is": "Ferðaþjónusta og geiraskellir",
+      "label_en": "Tourism and sector shock",
+      "weight": 0.1
+    },
+    "fiscal": {
+      "label_is": "Opinber fjármál",
+      "label_en": "Public finances",
+      "weight": 0.05
+    }
+  },
+  "indicators": [
+    {
+      "id": "headline_inflation_yoy",
+      "component": "inflation_rates",
+      "label_is": "Verðbólga",
+      "label_en": "Headline inflation",
+      "source_id": "statice_cpi",
+      "match": {
+        "Index": "CPI",
+        "Base": "B1988"
+      },
+      "transform": "yoy_percent_change",
+      "direction": "higher_is_worse",
+      "weight_within_component": 0.6,
+      "expected_frequency": "monthly",
+      "stale_after_days": 75,
+      "unit": "% YoY",
+      "threshold": {
+        "good": 2.5,
+        "bad": 10.0
+      }
+    },
+    {
+      "id": "cpi_ex_housing_yoy",
+      "component": "inflation_rates",
+      "label_is": "Verðbólga án húsnæðis",
+      "label_en": "CPI less housing inflation",
+      "source_id": "statice_cpi",
+      "match": {
+        "Index": "CPILH",
+        "Base": "B1988"
+      },
+      "transform": "yoy_percent_change",
+      "direction": "higher_is_worse",
+      "weight_within_component": 0.4,
+      "expected_frequency": "monthly",
+      "stale_after_days": 75,
+      "unit": "% YoY",
+      "threshold": {
+        "good": 2.5,
+        "bad": 10.0
+      }
+    },
+    {
+      "id": "gdp_growth_yoy",
+      "component": "growth_labour",
+      "label_is": "Hagvöxtur",
+      "label_en": "Real GDP growth",
+      "source_id": "statice_gdp_quarterly",
+      "match": {
+        "Mælikvarði": "2",
+        "Skipting": "14"
+      },
+      "transform": "latest_value",
+      "direction": "lower_is_worse",
+      "weight_within_component": 0.55,
+      "expected_frequency": "quarterly",
+      "stale_after_days": 150,
+      "unit": "%",
+      "threshold": {
+        "good": 3.0,
+        "bad": -4.0
+      }
+    },
+    {
+      "id": "unemployment_rate",
+      "component": "growth_labour",
+      "label_is": "Atvinnuleysi",
+      "label_en": "Unemployment rate",
+      "source_id": "statice_unemployment_quarterly",
+      "match": {
+        "Landsvæði": "0",
+        "Kyn": "0",
+        "Aldur": "0",
+        "Hlutfall, %": "3"
+      },
+      "transform": "latest_value",
+      "direction": "higher_is_worse",
+      "weight_within_component": 0.45,
+      "expected_frequency": "quarterly",
+      "stale_after_days": 150,
+      "unit": "%",
+      "threshold": {
+        "good": 3.0,
+        "bad": 9.0
+      }
+    },
+    {
+      "id": "residential_price_yoy",
+      "component": "housing_construction",
+      "label_is": "Íbúðaverð",
+      "label_en": "Residential property prices",
+      "source_id": "statice_residential_property",
+      "match": {
+        "Index": "RI_total"
+      },
+      "transform": "yoy_percent_change",
+      "direction": "higher_is_worse",
+      "weight_within_component": 1.0,
+      "expected_frequency": "monthly",
+      "stale_after_days": 75,
+      "unit": "% YoY",
+      "threshold": {
+        "good": 2.0,
+        "bad": 15.0
+      }
+    },
+    {
+      "id": "goods_trade_balance",
+      "component": "external_fx",
+      "label_is": "Vöruskiptajöfnuður",
+      "label_en": "Goods trade balance",
+      "source_id": "statice_goods_trade",
+      "match": {
+        "Trade": "3"
+      },
+      "transform": "latest_value",
+      "direction": "lower_is_worse",
+      "weight_within_component": 1.0,
+      "expected_frequency": "monthly",
+      "stale_after_days": 75,
+      "unit": "ISK million",
+      "threshold": {
+        "good": 5000,
+        "bad": -35000
+      }
+    },
+    {
+      "id": "foreign_hotel_overnights_yoy",
+      "component": "tourism_sector",
+      "label_is": "Erlendar hótelnætur",
+      "label_en": "Foreign hotel overnight stays",
+      "source_id": "statice_hotel_overnights",
+      "match": {
+        "Ríkisfang": "Foreigners",
+        "Landshluti": "0"
+      },
+      "transform": "yoy_percent_change",
+      "direction": "lower_is_worse",
+      "weight_within_component": 1.0,
+      "expected_frequency": "monthly",
+      "stale_after_days": 75,
+      "unit": "% YoY",
+      "threshold": {
+        "good": 5.0,
+        "bad": -30.0
+      }
+    },
+    {
+      "id": "household_new_credit_growth",
+      "component": "credit_banking",
+      "label_is": "Ný útlán til heimila",
+      "label_en": "Household new credit",
+      "source_id": "cb_new_credit",
+      "match": {
+        "sector_en": "Households",
+        "block": "Ný útlán að frádregnum upp- og umframgreiðslum / New credit less prepayments"
+      },
+      "transform": "rolling_12m_sum_yoy",
+      "direction": "lower_is_worse",
+      "weight_within_component": 0.55,
+      "expected_frequency": "monthly",
+      "stale_after_days": 75,
+      "unit": "% YoY, 12m rolling sum",
+      "threshold": {
+        "good": 10.0,
+        "bad": -40.0
+      }
+    },
+    {
+      "id": "corporate_new_credit_growth",
+      "component": "credit_banking",
+      "label_is": "Ný útlán til fyrirtækja",
+      "label_en": "Corporate new credit",
+      "source_id": "cb_new_credit",
+      "match": {
+        "sector_en": "Non-financial corporations",
+        "block": "Ný útlán að frádregnum upp- og umframgreiðslum / New credit less prepayments"
+      },
+      "transform": "rolling_12m_sum_yoy",
+      "direction": "lower_is_worse",
+      "weight_within_component": 0.45,
+      "expected_frequency": "monthly",
+      "stale_after_days": 75,
+      "unit": "% YoY, 12m rolling sum",
+      "threshold": {
+        "good": 10.0,
+        "bad": -40.0
+      }
+    },
+    {
+      "id": "fiscal_balance_gdp",
+      "component": "fiscal",
+      "label_is": "Afkoma hins opinbera",
+      "label_en": "General government balance",
+      "source_id": "statice_public_finance",
+      "match": {
+        "Skipting": "5"
+      },
+      "transform": "latest_value",
+      "direction": "lower_is_worse",
+      "weight_within_component": 1.0,
+      "expected_frequency": "annual",
+      "stale_after_days": 450,
+      "unit": "% of GDP",
+      "threshold": {
+        "good": 1.0,
+        "bad": -8.0
+      }
+    }
+  ],
+  "normalization": {
+    "percentile": "Winsorized 1st/99th percentile rank; inverted when lower values are worse.",
+    "threshold": "Linear 0-100 scale between configured good and bad thresholds.",
+    "combined": "0.70 percentile stress + 0.30 threshold stress when thresholds exist."
+  },
+  "missing_data": "Missing or stale indicators are excluded from scoring and reduce confidence.",
+  "disclaimer": "Kreppumælirinn er ekki fjármálaráðgjöf. Hann er opið gagnamælaborð með kvíða.",
+  "source_count": 8
+}

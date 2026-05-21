@@ -1,0 +1,304 @@
+{
+  "schema_version": "1.0.0",
+  "score_version": "0.2.0",
+  "generated_at": "2026-05-21T16:39:26.728973Z",
+  "as_of": "2026-05-21",
+  "overall": {
+    "score": 59,
+    "raw_score": 59.09,
+    "confidence": 1.0,
+    "confidence_label": "High",
+    "level": {
+      "min": 40,
+      "max": 59,
+      "label_is": "Þetta er farið að lykta",
+      "label_en": "Something smells macro-ish",
+      "emoji": "🟠"
+    }
+  },
+  "components": [
+    {
+      "id": "inflation_rates",
+      "label_is": "Verðbólga og vextir",
+      "label_en": "Inflation and rates",
+      "score": 57.94,
+      "weight": 0.2,
+      "confidence": 1.0,
+      "indicators": [
+        {
+          "id": "headline_inflation_yoy",
+          "label_is": "Verðbólga",
+          "label_en": "Headline inflation",
+          "value": 5.25,
+          "unit": "% YoY",
+          "period": "2026M04",
+          "stress_score": 57.66,
+          "direction": "higher_is_worse",
+          "source_id": "statice_cpi",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__visitolur__1_vnv__1_vnv/VIS01002.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 0.919
+        },
+        {
+          "id": "cpi_ex_housing_yoy",
+          "label_is": "Verðbólga án húsnæðis",
+          "label_en": "CPI less housing inflation",
+          "value": 4.79,
+          "unit": "% YoY",
+          "period": "2026M04",
+          "stress_score": 58.35,
+          "direction": "higher_is_worse",
+          "source_id": "statice_cpi",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__visitolur__1_vnv__1_vnv/VIS01002.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 0.668
+        }
+      ],
+      "missing_or_stale": []
+    },
+    {
+      "id": "growth_labour",
+      "label_is": "Hagvöxtur og vinnumarkaður",
+      "label_en": "Growth and labour market",
+      "score": 77.52,
+      "weight": 0.2,
+      "confidence": 1.0,
+      "indicators": [
+        {
+          "id": "gdp_growth_yoy",
+          "label_is": "Hagvöxtur",
+          "label_en": "Real GDP growth",
+          "value": -0.6,
+          "unit": "%",
+          "period": "2025Q4",
+          "stress_score": 74.7,
+          "direction": "lower_is_worse",
+          "source_id": "statice_gdp_quarterly",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__thjodhagsreikningar__landsframl__2_landsframleidsla_arsfj/THJ01601.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 2.717
+        },
+        {
+          "id": "unemployment_rate",
+          "label_is": "Atvinnuleysi",
+          "label_en": "Unemployment rate",
+          "value": 7.3,
+          "unit": "%",
+          "period": "2026Q1",
+          "stress_score": 80.96,
+          "direction": "higher_is_worse",
+          "source_id": "statice_unemployment_quarterly",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Samfelag/Samfelag__vinnumarkadur__vinnumarkadsrannsokn__2_arsfjordungstolur/VIN00910.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 2.787
+        }
+      ],
+      "missing_or_stale": []
+    },
+    {
+      "id": "housing_construction",
+      "label_is": "Húsnæði og framkvæmdir",
+      "label_en": "Housing and construction",
+      "score": 15.78,
+      "weight": 0.15,
+      "confidence": 1.0,
+      "indicators": [
+        {
+          "id": "residential_price_yoy",
+          "label_is": "Íbúðaverð",
+          "label_en": "Residential property prices",
+          "value": 3.71,
+          "unit": "% YoY",
+          "period": "2026M04",
+          "stress_score": 15.78,
+          "direction": "higher_is_worse",
+          "source_id": "statice_residential_property",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__visitolur__1_vnv__3_greiningarvisitolur/VIS01106.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": -5.134
+        }
+      ],
+      "missing_or_stale": []
+    },
+    {
+      "id": "external_fx",
+      "label_is": "Gengi, utanríkisviðskipti og gjaldeyrir",
+      "label_en": "External and FX stress",
+      "score": 84.52,
+      "weight": 0.15,
+      "confidence": 1.0,
+      "indicators": [
+        {
+          "id": "goods_trade_balance",
+          "label_is": "Vöruskiptajöfnuður",
+          "label_en": "Goods trade balance",
+          "value": -29566.1,
+          "unit": "ISK million",
+          "period": "2026M03",
+          "stress_score": 84.52,
+          "direction": "lower_is_worse",
+          "source_id": "statice_goods_trade",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__utanrikisverslun__1_voruvidskipti__01_voruskipti/UTA06002.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 5.178
+        }
+      ],
+      "missing_or_stale": []
+    },
+    {
+      "id": "credit_banking",
+      "label_is": "Lán, bankar og fjármálakerfi",
+      "label_en": "Credit and banking stress",
+      "score": 65.26,
+      "weight": 0.15,
+      "confidence": 1.0,
+      "indicators": [
+        {
+          "id": "household_new_credit_growth",
+          "label_is": "Ný útlán til heimila",
+          "label_en": "Household new credit",
+          "value": -24.51,
+          "unit": "% YoY, 12m rolling sum",
+          "period": "2026M03",
+          "stress_score": 74.24,
+          "direction": "lower_is_worse",
+          "source_id": "cb_new_credit",
+          "source_name": "Central Bank of Iceland",
+          "source_url": "https://indicators.cb.is/statistics/monetary-statistics/",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 1.999
+        },
+        {
+          "id": "corporate_new_credit_growth",
+          "label_is": "Ný útlán til fyrirtækja",
+          "label_en": "Corporate new credit",
+          "value": -1.56,
+          "unit": "% YoY, 12m rolling sum",
+          "period": "2026M03",
+          "stress_score": 54.29,
+          "direction": "lower_is_worse",
+          "source_id": "cb_new_credit",
+          "source_name": "Central Bank of Iceland",
+          "source_url": "https://indicators.cb.is/statistics/monetary-statistics/",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 0.29
+        }
+      ],
+      "missing_or_stale": []
+    },
+    {
+      "id": "tourism_sector",
+      "label_is": "Ferðaþjónusta og geiraskellir",
+      "label_en": "Tourism and sector shock",
+      "score": 43.26,
+      "weight": 0.1,
+      "confidence": 1.0,
+      "indicators": [
+        {
+          "id": "foreign_hotel_overnights_yoy",
+          "label_is": "Erlendar hótelnætur",
+          "label_en": "Foreign hotel overnight stays",
+          "value": 4.88,
+          "unit": "% YoY",
+          "period": "2026M03",
+          "stress_score": 43.26,
+          "direction": "lower_is_worse",
+          "source_id": "statice_hotel_overnights",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Atvinnuvegir/Atvinnuvegir__ferdathjonusta__gisting__1_hotelgistiheimili/SAM01102.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": -0.674
+        }
+      ],
+      "missing_or_stale": []
+    },
+    {
+      "id": "fiscal",
+      "label_is": "Opinber fjármál",
+      "label_en": "Public finances",
+      "score": 56.8,
+      "weight": 0.05,
+      "confidence": 1.0,
+      "indicators": [
+        {
+          "id": "fiscal_balance_gdp",
+          "label_is": "Afkoma hins opinbera",
+          "label_en": "General government balance",
+          "value": -2.8,
+          "unit": "% of GDP",
+          "period": "2025",
+          "stress_score": 56.8,
+          "direction": "lower_is_worse",
+          "source_id": "statice_public_finance",
+          "source_name": "Statistics Iceland",
+          "source_url": "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__fjaropinber__fjarmal_opinber__fjarmal_opinber/THJ05111.px",
+          "retrieved_at": "2026-05-21T16:38:14.811083Z",
+          "stale": false,
+          "contribution": 0.34
+        }
+      ],
+      "missing_or_stale": []
+    }
+  ],
+  "drivers": {
+    "up": [
+      {
+        "indicator_id": "goods_trade_balance",
+        "label_is": "Vöruskiptajöfnuður",
+        "label_en": "Goods trade balance",
+        "reason_is": "Vöruskiptajöfnuður ýtir mælinum upp miðað við sögu og þröskulda.",
+        "contribution": 5.178
+      },
+      {
+        "indicator_id": "unemployment_rate",
+        "label_is": "Atvinnuleysi",
+        "label_en": "Unemployment rate",
+        "reason_is": "Atvinnuleysi ýtir mælinum upp miðað við sögu og þröskulda.",
+        "contribution": 2.787
+      },
+      {
+        "indicator_id": "gdp_growth_yoy",
+        "label_is": "Hagvöxtur",
+        "label_en": "Real GDP growth",
+        "reason_is": "Hagvöxtur ýtir mælinum upp miðað við sögu og þröskulda.",
+        "contribution": 2.717
+      }
+    ],
+    "down": [
+      {
+        "indicator_id": "residential_price_yoy",
+        "label_is": "Íbúðaverð",
+        "label_en": "Residential property prices",
+        "reason_is": "Íbúðaverð heldur aftur af kreppu-stemmingunni.",
+        "contribution": -5.134
+      },
+      {
+        "indicator_id": "foreign_hotel_overnights_yoy",
+        "label_is": "Erlendar hótelnætur",
+        "label_en": "Foreign hotel overnight stays",
+        "reason_is": "Erlendar hótelnætur heldur aftur af kreppu-stemmingunni.",
+        "contribution": -0.674
+      }
+    ]
+  },
+  "warnings": [],
+  "attribution": [
+    "Central Bank of Iceland",
+    "Statistics Iceland"
+  ]
+}

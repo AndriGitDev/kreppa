@@ -1,0 +1,137 @@
+sources:
+  - id: statice_cpi
+    provider: statice
+    kind: pxweb
+    name: Statistics Iceland CPI
+    table_id: VIS01002
+    page_url: "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__visitolur__1_vnv__1_vnv/VIS01002.px"
+    api_url: "https://px.hagstofa.is/pxen/api/v1/en/Efnahagur/VIS01002.px"
+    license: "CC BY 4.0"
+    attribution: "Statistics Iceland"
+    frequency: monthly
+    time_code: Month
+    unit: Index
+    query:
+      Index: ["CPI", "CPILH"]
+      Base: ["B1988"]
+
+  - id: statice_gdp_quarterly
+    provider: statice
+    kind: pxweb
+    name: Statistics Iceland quarterly GDP
+    table_id: THJ01601
+    page_url: "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__thjodhagsreikningar__landsframl__2_landsframleidsla_arsfj/THJ01601.px"
+    api_url: "https://px.hagstofa.is/pxen/api/v1/en/Efnahagur/THJ01601.px"
+    license: "CC BY 4.0"
+    attribution: "Statistics Iceland"
+    frequency: quarterly
+    time_code: Ársfjórðungur
+    unit: "%"
+    query:
+      Mælikvarði: ["2"]
+      Skipting: ["14"]
+
+  - id: statice_unemployment_quarterly
+    provider: statice
+    kind: pxweb
+    name: Statistics Iceland labour force survey
+    table_id: VIN00910
+    page_url: "https://px.hagstofa.is/pxen/pxweb/en/Samfelag/Samfelag__vinnumarkadur__vinnumarkadsrannsokn__2_arsfjordungstolur/VIN00910.px"
+    api_url: "https://px.hagstofa.is/pxen/api/v1/en/Samfelag/vinnumarkadur/vinnumarkadsrannsokn/2_arsfjordungstolur/VIN00910.px"
+    license: "CC BY 4.0"
+    attribution: "Statistics Iceland"
+    frequency: quarterly
+    time_code: Ársfjórðungur
+    unit: "%"
+    query:
+      Landsvæði: ["0"]
+      Kyn: ["0"]
+      Aldur: ["0"]
+      Hlutfall, %: ["3"]
+
+  - id: statice_residential_property
+    provider: statice
+    kind: pxweb
+    name: Statistics Iceland residential property market price index
+    table_id: VIS01106
+    page_url: "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__visitolur__1_vnv__3_greiningarvisitolur/VIS01106.px"
+    api_url: "https://px.hagstofa.is/pxen/api/v1/en/Efnahagur/VIS01106.px"
+    license: "CC BY 4.0"
+    attribution: "Statistics Iceland"
+    frequency: monthly
+    time_code: Month
+    unit: Index
+    query:
+      Index: ["RI_total"]
+
+  - id: statice_goods_trade
+    provider: statice
+    kind: pxweb
+    name: Statistics Iceland goods trade balance
+    table_id: UTA06002
+    page_url: "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__utanrikisverslun__1_voruvidskipti__01_voruskipti/UTA06002.px"
+    api_url: "https://px.hagstofa.is/pxen/api/v1/en/Efnahagur/UTA06002.px"
+    license: "CC BY 4.0"
+    attribution: "Statistics Iceland"
+    frequency: monthly
+    time_code: Month
+    unit: "ISK million"
+    query:
+      Trade: ["3"]
+
+  - id: statice_hotel_overnights
+    provider: statice
+    kind: pxweb
+    name: Statistics Iceland hotel overnight stays
+    table_id: SAM01102
+    page_url: "https://px.hagstofa.is/pxen/pxweb/en/Atvinnuvegir/Atvinnuvegir__ferdathjonusta__gisting__1_hotelgistiheimili/SAM01102.px"
+    api_url: "https://px.hagstofa.is/pxen/api/v1/en/Atvinnuvegir/SAM01102.px"
+    license: "CC BY 4.0"
+    attribution: "Statistics Iceland"
+    frequency: monthly
+    time_code: composite_year_month
+    unit: "overnight stays"
+    query:
+      Ríkisfang: ["Foreigners"]
+      Landshluti: ["0"]
+      Mánuður: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+
+  - id: statice_public_finance
+    provider: statice
+    kind: pxweb
+    name: Statistics Iceland general government main aggregates
+    table_id: THJ05111
+    page_url: "https://px.hagstofa.is/pxen/pxweb/en/Efnahagur/Efnahagur__fjaropinber__fjarmal_opinber__fjarmal_opinber/THJ05111.px"
+    api_url: "https://px.hagstofa.is/pxen/api/v1/en/Efnahagur/THJ05111.px"
+    license: "CC BY 4.0"
+    attribution: "Statistics Iceland"
+    frequency: annual
+    time_code: Ár
+    unit: "% of GDP"
+    query:
+      Skipting: ["5"]
+
+  - id: cb_new_credit
+    provider: central_bank_iceland
+    kind: central_bank_new_credit_xlsx
+    name: Central Bank of Iceland new credit
+    table_id: INN_NY_UTLAN
+    page_url: "https://indicators.cb.is/statistics/monetary-statistics/"
+    download_url: "https://sedlabanki.is/library?itemid=b73e42d6-ba32-4eb3-b39e-1c70d2e45aec"
+    license: "Free use with source acknowledgement"
+    attribution: "Central Bank of Iceland"
+    frequency: monthly
+    time_code: Month
+    unit: "ISK million"
+
+pending_sources:
+  - id: cb_policy_rate
+    provider: central_bank_iceland
+    status: pending
+    reason: "Stable machine-readable endpoint not yet verified."
+    page_url: "https://cb.is/statistics/"
+  - id: cb_financial_system
+    provider: central_bank_iceland
+    status: pending
+    reason: "Databank and Economic Indicators expose relevant data, but the production-safe export/API contract needs verification before scoring."
+    page_url: "https://databank.is/report/monetary"
